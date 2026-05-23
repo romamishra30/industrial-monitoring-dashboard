@@ -1,0 +1,120 @@
+/* =========================
+   ALERTS
+========================= */
+.alerts {
+  padding: 20px;
+}
+
+.alerts-box {
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgba(15, 27, 45, 0.65);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.alert-item {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  column-gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.alert-item:last-child {
+  border-bottom: none;
+}
+
+.alert-left {
+  display: contents;
+}
+
+.alert-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.alert-icon.warning {
+  color: #facc15;
+}
+
+.alert-icon.critical {
+  color: #ef4444;
+}
+
+.alert-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.alert-info p {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.alert-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+  text-align: right;
+}
+
+.alert-right span,
+.alert-right small {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.badge.warning {
+  min-width: 64px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(250, 204, 21, 0.18);
+  color: #facc15;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.badge.critical {
+  min-width: 64px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* =========================
+   VIEW ALL BUTTON
+========================= */
+button.view-all-btn {
+  background: rgba(59, 130, 246, 0.12);
+  color: #7aa2ff;
+  border: 1px solid rgba(122, 162, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+button.view-all-btn:hover {
+  background: rgba(59, 130, 246, 0.28);
+  color: #b7d0ff;
+  border-color: rgba(122, 162, 255, 0.45);
+  transform: translateY(-1px);
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industrial Dashboard</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/charts.css">
+    <link rel="stylesheet" href="css/alerts.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!--The icon package I used-->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!--For the charts-->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="gem"></i>
+                </div>
+                <div>
+                    <h2>Industrial Dashboard</h2>
+                    <p>Real-time Monitoring</p>
+                </div>
+            </div>
+
+            <nav>
+                <a class="active">
+                    <span class="nav-left"><i data-lucide="house"></i> Overview</span>
+                </a>
+
+                <a>
+                    <span class="nav-left"><i data-lucide="monitor"></i> Machines</span>
+                </a>
+
+                <a>
+                    <span class="nav-left"><i data-lucide="bell"></i> Alerts</span>
+                    <span class="alert-count">3</span>
+                </a>
+
+                <a>
+                    <span class="nav-left"><i data-lucide="trending-up"></i> Trends</span>
+                </a>
+
+                <a>
+                    <span class="nav-left"><i data-lucide="file-text"></i> Reports</span>
+                </a>
+
+                <a>
+                    <span class="nav-left"><i data-lucide="settings"></i> Settings</span>
+                </a>
+            </nav>
+
+            <div class="system-box">
+                <h4><i data-lucide="shield-check"></i> System Status</h4>
+                <p class="green">All Systems Normal</p>
+                <hr />
+                <small>Data Last Updated</small>
+                <span id="sidebarTime">10:24:35 AM</span>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header>
+                <div>
+                    <h1>Overview</h1>
+                    <p>Real-time summary of all machines</p>
+                </div>
+
+                <div class="top-actions">
+                    <span class="live">● Live</span>
+                    <span id="liveTime">10:24:35 AM</span>
+                    <button id="exportCsvBtn">Export CSV</button>
+                </div>
+            </header>
+
+            <section class="cards">
+
+                <!-- Machines Online -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <p>Machines Online</p>
+                            <h2 id="machinesOnlineValue">8 <span>/ 5</span></h2>
+                        </div>
+
+                        <div class="card-icon green-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                    </div>
+
+                    <small>80%</small>
+
+                    <div class="progress">
+                        <b style="width: 80%"></b>
+                    </div>
+                </div>
+
+                <!-- Total Production -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <p>Total Production</p>
+                            <h2 id="totalProductionValue">12,458</h2>
+                        </div>
+
+                        <div class="card-icon blue-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+
+                    <small>Today</small>
+                </div>
+
+                <!-- Average OEE -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <p>Average OEE</p>
+                            <h2 id="averageOeeValue">85.6%</h2>
+                        </div>
+
+                        <div class="card-icon purple-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+
+                    <small class="green">↑ 4.3%</small>
+                </div>
+
+                <!-- Active Alerts -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <p>Active Alerts</p>
+                            <h2 id="activeAlertsValue" class="yellow">3</h2>
+                        </div>
+
+                        <div class="card-icon yellow-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+
+                    <small>View all alerts</small>
+                </div>
+
+                <!-- Utilization -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <p>Utilization</p>
+                            <h2 id="utilizationValue">78.4%</h2>
+                        </div>
+
+                        <div class="card-icon teal-icon">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                    </div>
+
+                    <small class="green">↑ 5.6%</small>
+                </div>
+
+            </section>
+
+            <section class="grid">
+                <div class="panel machine-panel">
+                    <h3>Machine Status</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Machine</th>
+                                <th>Status</th>
+                                <th>Temperature</th>
+                                <th>Vibration</th>
+                                <th class="oee-heading">OEE</th>
+                                <th>Production</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><i class="dot green-bg"></i> Machine 1</td>
+                                <td>
+                                    <span id="m1Status" class="badge green-badge">
+                                        Running
+                                    </span>
+                                </td>
+                                <td id="m1Temp">65.2 °C</td>
+                                <td id="m1Vibration">2.1 mm/s</td>
+                                <td>
+                                    <div class="oee-mini">
+                                        <span id="m1OeeText">88.5%</span>
+
+                                        <div class="oee-mini-track">
+                                            <div id="m1OeeBar" class="oee-mini-fill green-fill" style="width:88.5%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td id="m1Production">1,250</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="dot green-bg"></i> Machine 2</td>
+                                <td>
+                                    <span id="m2Status" class="badge green-badge">
+                                        Running
+                                    </span>
+                                </td>
+                                <td id="m2Temp">61.8 °C</td>
+                                <td id="m2Vibration">1.8 mm/s</td>
+                                <td>
+                                    <div class="oee-mini">
+                                        <span id="m2OeeText">91.2%</span>
+
+                                        <div class="oee-mini-track">
+                                            <div id="m2OeeBar" class="oee-mini-fill green-fill" style="width:91.2%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td id="m2Production">1,320</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="dot yellow-bg"></i> Machine 3</td>
+                                <td>
+                                    <span id="m3Status" class="badge yellow-badge">
+                                        Warning
+                                    </span>
+                                </td>
+                                <td id="m3Temp">78.6 °C</td>
+                                <td id="m3Vibration" class="orange">4.5 mm/s</td>
+                                <td>
+                                    <div class="oee-mini">
+                                        <span id="m3OeeText">76.3%</span>
+
+                                        <div class="oee-mini-track">
+                                            <div id="m3OeeBar" class="oee-mini-fill yellow-fill" style="width:76.3%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td id="m3Production">980</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="dot red-bg"></i> Machine 4</td>
+                                <td>
+                                    <span id="m4Status" class="badge red-badge">
+                                        Stopped
+                                    </span>
+                                </td>
+                                <td id="m4Temp">--</td>
+                                <td id="m4Vibration">--</td>
+                                <td>
+                                    <div class="oee-mini">
+                                        <span id="m4OeeText">0%</span>
+
+                                        <div class="oee-mini-track">
+                                            <div id="m4OeeBar" class="oee-mini-fill red-fill" style="width:0%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td id="m4Production">0</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="dot yellow-bg"></i> Machine 5</td>
+                                <td>
+                                    <span id="m5Status" class="badge yellow-badge">
+                                        Warning
+                                    </span>
+                                </td>
+                                <td id="m5Temp">75.0 °C</td>
+                                <td id="m5Vibration" class="orange">4.1 mm/s</td>
+                                <td>
+                                    <div class="oee-mini">
+                                        <span id="m5OeeText">72.6%</span>
+
+                                        <div class="oee-mini-track">
+                                            <div id="m5OeeBar" class="oee-mini-fill yellow-fill" style="width:72.6%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td id="m5Production">890</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h3>Real-time Trends</h3>
+                        <div>
+                            <button class="active-btn">1H</button>
+                            <button>6H</button>
+                            <button>12H</button>
+                            <button>24H</button>
+                        </div>
+                    </div>
+
+                    <div class="chart">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bottom-grid">
+                <div class="panel oee-card">
+                    <h3>OEE Overview</h3>
+
+                    <div class="oee-layout">
+                        <div class="oee-donut">
+                            <div class="oee-center">
+                                <h2 id="oeeCircleValue">85.6%</h2>
+                                <p>Average OEE</p>
+                            </div>
+                        </div>
+
+                        <div class="oee-stats">
+                            <div class="oee-row">
+                                <div class="oee-label">
+                                    <span>Availability</span>
+                                    <b id="availabilityValue">92.1%</b>
+                                </div>
+                                <div class="oee-track">
+                                    <div id="availabilityBar" class="oee-fill" style="width:92.1%"></div>
+                                </div>
+                            </div>
+
+                            <div class="oee-row">
+                                <div class="oee-label">
+                                    <span>Performance</span>
+                                    <b id="performanceValue">93.4%</b>
+                                </div>
+                                <div class="oee-track">
+                                    <div id="performanceBar" class="oee-fill" style="width:87.3%"></div>
+                                </div>
+                            </div>
+
+                            <div class="oee-row">
+                                <div class="oee-label">
+                                    <span>Quality</span>
+                                    <b id="qualityValue">93.4%</b>
+                                </div>
+                                <div class="oee-track">
+                                    <div id="qualityBar" class="oee-fill" style="width:93.4%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3>Production Count</h3>
+                    <h2>12,458 <span class="green">↑ 8.7%</span></h2>
+                    <div class="chart small-chart">
+                        <canvas id="productionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel alerts">
+
+                    <div class="alerts-header">
+                        <h3>Alerts</h3>
+                        <button class="view-all-btn">View all</button>
+                    </div>
+
+                    <div class="alerts-box">
+
+                        <div class="alert-item">
+
+                            <div class="alert-icon warning">
+                                <i data-lucide="triangle-alert"></i>
+                            </div>
+
+                            <div class="alert-info">
+                                <h4>High Vibration</h4>
+                                <p>Machine 3</p>
+                            </div>
+
+                            <div class="alert-right">
+                                <span>10:23 AM</span>
+                                <div class="badge warning">Warning</div>
+                            </div>
+
+                        </div>
+
+                        <div class="alert-item">
+
+                            <div class="alert-icon critical">
+                                <i data-lucide="circle-alert"></i>
+                            </div>
+
+                            <div class="alert-info">
+                                <h4>High Temperature</h4>
+                                <p>Machine 8</p>
+                            </div>
+
+                            <div class="alert-right">
+                                <span>10:21 AM</span>
+                                <div class="badge critical">Critical</div>
+                            </div>
+
+                        </div>
+
+                        <div class="alert-item">
+
+                            <div class="alert-icon warning">
+                                <i data-lucide="triangle-alert"></i>
+                            </div>
+
+                            <div class="alert-info">
+                                <h4>OEE Below Threshold</h4>
+                                <p>Machine 3</p>
+                            </div>
+
+                            <div class="alert-right">
+                                <span>10:15 AM</span>
+                                <div class="badge warning">Warning</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script src="script.js"></script>
+    <script src="chart.js"></script>
+
+
+</body>
+
+</html>

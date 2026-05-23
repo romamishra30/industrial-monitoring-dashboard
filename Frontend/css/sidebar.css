@@ -1,0 +1,118 @@
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 22px;
+  background: #07101c;
+  border-right: 1px solid #1f2d42;
+  z-index: 10;
+}
+
+.main {
+  flex: 1;
+  margin-left: 260px;
+  padding: 24px;
+  overflow-x: hidden;
+}
+
+.system-box {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  margin-top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.logo-icon,
+.logo-icon svg {
+  width: 34px;
+  height: 34px;
+  color: #377dff;
+}
+
+.logo h2 {
+  font-size: 16px;
+}
+
+.logo p,
+header p,
+small {
+  color: #8b9bb3;
+  font-size: 12px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+nav a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  margin-bottom: 8px;
+  color: #aebbd0;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+nav a.active,
+nav a:hover {
+  background: #16366d;
+  color: #3d7cff;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-left svg {
+  width: 20px;
+  height: 20px;
+}
+
+.alert-count {
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 8px;
+  font-size: 13px;
+}
+
+/* =========================
+   SYSTEM STATUS
+========================= */
+.system-box {
+  margin-top: 180px;
+  padding: 18px;
+  background: #111c2c;
+  border: 1px solid #22324a;
+  border-radius: 8px;
+}
+
+.system-box h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.system-box h4 svg {
+  width: 18px;
+  height: 18px;
+}

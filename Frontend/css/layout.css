@@ -1,0 +1,45 @@
+
+/* =========================
+   LAYOUT
+========================= */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #07111f, #0c1728);
+}
+
+.main {
+  flex: 1;
+  padding: 24px;
+  overflow-x: hidden;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+  align-items: stretch;
+}
+
+/* =========================
+   GRID ALIGNMENT FIX
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+  align-items: stretch;
+}
+
+.machine-panel,
+.trends-panel {
+  height: 100%;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  gap: 14px;
+}

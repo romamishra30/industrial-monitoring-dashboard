@@ -1,0 +1,132 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #050b14;
+  color: #e5eefc;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  background: #1f2d42;
+  color: #dbeafe;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.top-actions button,
+.active-btn {
+  background: #2563eb;
+}
+
+/* =========================
+   TABLE
+========================= */
+.machine-panel table {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid #22324a;
+}
+
+th {
+  color: #9caec6;
+  font-weight: 500;
+}
+
+tbody tr {
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* =========================
+   STATUS COLORS
+========================= */
+.green {
+  color: #39d353;
+}
+
+.yellow {
+  color: #facc15;
+}
+
+.orange {
+  color: #fb923c;
+  font-weight: bold;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.green-bg {
+  background: #22c55e;
+}
+
+.yellow-bg {
+  background: #facc15;
+}
+
+.red-bg {
+  background: #ef4444;
+}
+
+/* =========================
+   BADGES
+========================= */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.green-badge {
+  background: #123d26;
+  color: #39d353;
+}
+
+.yellow-badge,
+.badge.warning {
+  background: rgba(250, 204, 21, 0.15);
+  color: #facc15;
+}
+
+.red-badge,
+.badge.critical {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+}
