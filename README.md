@@ -268,7 +268,7 @@ Possible future enhancements:
 ## 1. Clone Repository
 
 ```bash
-git clone YOUR_GITHUB_REPO_LINK
+git clone https://github.com/romamishra30/industrial-monitoring-dashboard.git
 ```
 
 ---
@@ -307,33 +307,6 @@ Server runs on:
 http://localhost:3000
 ```
 
----
-
-# Frontend Setup
-
-## 1. Open Frontend Folder
-
-Open:
-
-```bash
-Frontend/index.html
-```
-
-using:
-
-- VS Code Live Server
-
-OR
-
-- Any local development server
-
-Frontend runs on:
-
-```bash
-http://127.0.0.1:5500
-```
-
----
 
 # Screenshots
 
