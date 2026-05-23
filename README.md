@@ -312,12 +312,10 @@ http://localhost:3000
 
 (Add dashboard screenshots here)
 
-Example:
+<img width="1895" height="909" alt="image" src="https://github.com/user-attachments/assets/ca0de9a8-bf01-4314-ba6e-c59718223d37" />
+<img width="1885" height="911" alt="image" src="https://github.com/user-attachments/assets/78a568b9-acb4-4cf7-9711-c964ceb946ee" />
 
-- Main dashboard
-- Alerts section
-- Charts section
-- Responsive mobile layout
+
 
 ---
 
