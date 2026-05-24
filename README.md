@@ -109,37 +109,6 @@ The backend is responsible for:
 - Processing alerts
 - Calculating summary analytics
 
----
-
-# Folder Structure
-
-```bash
-Industrial-Monitoring-Dashboard/
-│
-├── Backend/
-│   ├── data/
-│   │   └── machineData.js
-│   │
-│   ├── routes/
-│   │   ├── machine.js
-│   │   ├── alerts.js
-│   │   └── summary.js
-│   │
-│   ├── package.json
-│   └── server.js
-│
-├── Frontend/
-│   ├── css/
-│   ├── chart.js
-│   ├── script.js
-│   └── index.html
-│
-├── README.md
-└── .gitignore
-```
-
----
-
 # REST APIs Used
 
 ## 1. Machine Data API
